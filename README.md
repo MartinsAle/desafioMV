@@ -4,8 +4,8 @@ Desafio para vaga de Java Junior
 No desenvolvimento desse projeto foi utilizando banco de dados Oracle, Java EE (Java Enterprise Edition) com JSP JavaServer Pages e Java Servlets.
 # Criação do Banco
 1. Usuário(schema) utilizado no desenvolvimento foi "C##DEVELOPER". A senha de acesso é "devmv";
-2. Executar os scripts das tabelas para criação das mesmas no banco. Os scripts localizam-se na pasta /database/TABLES/;
-3. Compilar as PCK's no banco de dados que se encontram em /database/PACKAGE/;
+2. Executar os scripts das tabelas para criação das mesmas no banco. Os scripts localizam-se na pasta TABLES;
+3. Compilar as PCK's no banco de dados que se encontram em PACKAGE;
 # Aplicação JAVA
 1. Para executar a coneção com o banco de dados, é necessário executar o passo 1 de Criação do Banco utilizando os mesmos paramêtros. Caso queira alterar as configurações, é necessário alterar a string de conexão com banco de dados no pacote Model "Conexao.java";
 2. Importar as libs configuradas que estão na pasta sr/main/webapp/WEB_INF/lib;
