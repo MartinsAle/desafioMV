@@ -11,7 +11,6 @@ import oracle.jdbc.OracleTypes;
 public class ClientesDAO {
 	Conexao cn = new Conexao();
 
-//	CRUD CREATE
 	public void inserirCliente(ClienteBeans cliente) {
 		OracleCallableStatement params = null;
 		Connection con = cn.conectar();
@@ -29,7 +28,6 @@ public class ClientesDAO {
 		}
 	}
 
-//	CRUD READ
 	public ArrayList<ClienteBeans> listarClientes() {
 		OracleCallableStatement params = null;
 		Connection con = cn.conectar();
@@ -59,7 +57,6 @@ public class ClientesDAO {
 
 	}
 
-//	CRUD UPDATE
 	public void selecionarCliente(ClienteBeans clientes) {
 		String read2 = "select * from clientes where idcli = ?";
 		try {
@@ -99,7 +96,6 @@ public class ClientesDAO {
 		}
 	}
 
-//	CRUD DELETE
 	public void deletarCliente(ClienteBeans cliente) {
 		String delete = "delete from clientes where idcli=?";
 		try {

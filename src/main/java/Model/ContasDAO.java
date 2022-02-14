@@ -3,14 +3,11 @@ package Model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ContasDAO {
 	Conexao cn = new Conexao();
 
-//	CRUD CREATE
 	public void inserirConta(ContaBeans conta) {
 		String seq = "select contas_seq.nextval from sys.dual";
 		String create = "insert into contas(idcon, idcli, mov_credito, mov_debito, saldo_inicial, saldo_final, data_criado) values(?,?,?,?,?,?,?)";
@@ -37,7 +34,6 @@ public class ContasDAO {
 		}
 	}
 
-//	CRUD READ
 	public ArrayList<ContaBeans> listarContas() {
 		ArrayList<ContaBeans> contas = new ArrayList<>();
 		String read = "select * from contas order by idcon";
@@ -53,7 +49,8 @@ public class ContasDAO {
 				String saldo_inicial = rs.getString(5);
 				String saldo_final = rs.getString(6);
 				String data_criado = rs.getString(7);
-				contas.add(new ContaBeans(idcon, idcli, mov_credito, mov_debito, saldo_inicial, saldo_final, data_criado));
+				contas.add(
+						new ContaBeans(idcon, idcli, mov_credito, mov_debito, saldo_inicial, saldo_final, data_criado));
 			}
 			con.close();
 			return contas;
@@ -63,7 +60,6 @@ public class ContasDAO {
 		}
 	}
 
-//	CRUD UPDATE
 	public void selecionarConta(ContaBeans contas) {
 		String read2 = "select * from contas where idcon = ?";
 		try {
@@ -104,7 +100,6 @@ public class ContasDAO {
 		}
 	}
 
-//	CRUD DELETE
 	public void deletarConta(ContaBeans conta) {
 		String delete = "delete from contas where idcon=?";
 		try {

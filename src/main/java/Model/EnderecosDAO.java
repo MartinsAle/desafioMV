@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class EnderecosDAO {
 	Conexao cn = new Conexao();
 
-//	CRUD CREATE
 	public void inserirEndereco(EnderecoBeans endereco) {
 		String seq = "select enderecos_seq.nextval from sys.dual";
 		String create = "insert into enderecos(idend, idcli, rua, numero, complemento, bairro, cidade, uf, cep) values(?,?,?,?,?,?,?,?,?)";
@@ -37,7 +36,6 @@ public class EnderecosDAO {
 		}
 	}
 
-//	CRUD READ
 	public ArrayList<EnderecoBeans> listarEnderecos() {
 		ArrayList<EnderecoBeans> enderecos = new ArrayList<>();
 		String read = "select * from enderecos order by idend";
@@ -65,7 +63,6 @@ public class EnderecosDAO {
 		}
 	}
 
-//	CRUD UPDATE
 	public void selecionarEndereco(EnderecoBeans enderecos) {
 		String read2 = "select * from enderecos where idcli = ?";
 		try {
@@ -110,7 +107,6 @@ public class EnderecosDAO {
 		}
 	}
 
-//	CRUD DELETE
 	public void deletarEndereco(EnderecoBeans endereco) {
 		String delete = "delete from enderecos where idend=?";
 		try {

@@ -63,7 +63,7 @@ public class ClientesController extends HttpServlet {
 
 	protected void novoCliente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SimpleDateFormat sdf1= new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 		Date dt = new Date();
 		cliente.setTipoPessoa(request.getParameter("tipo_pessoa"));
 		cliente.setCpf(request.getParameter("cpf"));
@@ -115,19 +115,13 @@ public class ClientesController extends HttpServlet {
 			throws ServletException, IOException {
 		Document documento = new Document();
 		try {
-//				tipo de conteudo
 			response.setContentType("application/pdf");
-//				nome do documento
 			response.addHeader("Content-Disposition", "inline; filename=" + "contatos.pdf");
-//				criar o documento
 			PdfWriter.getInstance(documento, response.getOutputStream());
-//				abrir o documento -> conteudo
 			documento.open();
 			documento.add(new Paragraph("Relatório de saldo de todos os clientes:"));
 			documento.add(new Paragraph(" "));
-//				criar uma tabela
 			PdfPTable tabela = new PdfPTable(4);
-//				cabeçalho
 			PdfPCell col1 = new PdfPCell(new Paragraph("Cliente"));
 			PdfPCell col2 = new PdfPCell(new Paragraph("Cliente desde"));
 			PdfPCell col3 = new PdfPCell(new Paragraph("Saldo em"));
@@ -136,7 +130,6 @@ public class ClientesController extends HttpServlet {
 			tabela.addCell(col2);
 			tabela.addCell(col3);
 			tabela.addCell(col4);
-//				populando tabela com os contatos
 			ArrayList<ClienteBeans> lista = dao.listarClientes();
 			for (int i = 0; i < lista.size(); i++) {
 				tabela.addCell(lista.get(i).getNome());
